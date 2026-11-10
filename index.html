@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitation Numérique</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0b1329;
+    }
+    
+    .font-cinzel {
+      font-family: 'Cinzel', serif;
+    }
+    
+    .font-script {
+      font-family: 'Pinyon Script', cursive;
+    }
+
+    /* Animation de flottement pour le tampon */
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(-50%) scale(1);
+      }
+      50% {
+        transform: translateY(calc(-50% - 10px)) scale(1.04);
+      }
+    }
+
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Ombre portée du battant droit sur le battant gauche */
+    .shadow-bat-droit {
+      filter: drop-shadow(-15px 0px 12px rgba(0, 0, 0, 0.75));
+    }
+
+    /* Transitions pour l'ouverture des portes */
+    .door-transition {
+      transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+  <!-- Conteneur d'invitation avec dimensions strictes (640x904 px) -->
+  <div class="relative w-[640px] h-[904px] overflow-hidden shadow-2xl rounded-sm">
+    
+    <!-- ==========================================
+         HIÉRARCHIE ÉTAPE 4 : FOND (Tout en bas / z-0)
+         ========================================== -->
+    <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+         style="background-image: url('FOND.png');">
+    </div>
+
+
+    <!-- ==========================================
+         HIÉRARCHIE ÉTAPE 3 : TEXTES DE L'INVITATION
+         (Entre l'encadrement et le fond / z-10)
+         ========================================== -->
+    <div class="absolute inset-0 z-10 text-amber-100 flex flex-col justify-between p-16 text-center select-none pointer-events-auto">
+      
+      <!-- En-tête -->
+      <div class="pt-6">
+        <p class="text-xs uppercase tracking-[0.3em] text-amber-300/80 mb-2 font-cinzel">Vous êtes cordialement invité</p>
+        <h1 class="text-5xl font-script text-amber-200 my-4">Célébration D'Exception</h1>
+        <div class="w-24 h-[1px] bg-amber-500/50 mx-auto my-4"></div>
+      </div>
+
+      <!-- Corps du texte -->
+      <div class="my-auto space-y-6">
+        <p class="text-sm font-light tracking-wide text-slate-200 leading-relaxed max-w-md mx-auto">
+          NOUS AVONS LE PLAISIR DE VOUS ACCUEILLIR POUR PARTAGER AVEC NOUS CE MOMENT INOUBLIABLE ET MÉMORABLE.
+        </p>
+
+        <!-- Horaires & Date -->
+        <div class="grid grid-cols-2 gap-4 my-6 border-y border-amber-500/20 py-5 max-w-sm mx-auto">
+          <div class="border-r border-amber-500/20 pr-4">
+            <span class="block text-xs uppercase text-amber-400 font-cinzel">Samedi</span>
+            <span class="text-3xl font-cinzel font-bold text-amber-200">18</span>
+            <span class="block text-xs uppercase text-slate-300">Octobre</span>
+          </div>
+          <div class="pl-4 flex flex-col justify-center">
+            <span class="block text-xs uppercase text-amber-400 font-cinzel">Heure</span>
+            <span class="text-2xl font-cinzel font-semibold text-amber-200">19:00</span>
+          </div>
+        </div>
+
+        <!-- Lieu -->
+        <div class="space-y-1">
+          <div class="inline-block p-2 rounded-full bg-amber-500/10 mb-1">
+            <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-cinzel text-lg text-amber-300">Le Grand Palais des Lumières</h3>
+          <p class="text-xs text-slate-300">125 Avenue Montaigne, 75008 Paris</p>
+        </div>
+      </div>
+
+      <!-- Pied de page -->
+      <div class="pb-6 space-y-4">
+        <button class="bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-slate-950 font-semibold px-8 py-3 rounded text-sm tracking-wider uppercase transition shadow-lg shadow-amber-900/30 cursor-pointer">
+          Confirmer ma présence (RSVP)
+        </button>
+        <p class="text-[10px] text-slate-300 tracking-widest uppercase italic font-script text-base">Tenue de soirée exigée</p>
+      </div>
+    </div>
+
+
+    <!-- ==========================================
+         HIÉRARCHIE ÉTAPE 2 : ENCADREMENT
+         (Au-dessus du fond et des textes / z-20)
+         ========================================== -->
+    <div class="absolute inset-0 z-20 bg-cover bg-center bg-no-repeat pointer-events-none"
+         style="background-image: url('encadrement.png');">
+    </div>
+
+
+    <!-- ==========================================
+         HIÉRARCHIE ÉTAPE 1 : LES BATTAGES / PORTES
+         (Tout en haut de la pile / z-30)
+         ========================================== -->
+    
+    <!-- BATTANT GAUCHE -->
+    <div id="bat-gauche" 
+         class="absolute top-0 left-0 w-1/2 h-full z-30 door-transition bg-no-repeat bg-cover bg-left cursor-pointer"
+         style="background-image: url('BAT GAUCHE.png');">
+    </div>
+
+    <!-- BATTANT DROIT (avec ombre portée) -->
+    <div id="bat-droit" 
+         class="absolute top-0 right-0 w-1/2 h-full z-40 shadow-bat-droit door-transition bg-no-repeat bg-cover bg-right cursor-pointer"
+         style="background-image: url('BAT DROIT.png');">
+      
+      <!-- TAMPON (Ancré au battant droit, décalé légèrement vers la gauche si besoin) -->
+      <div id="tampon-container" 
+           class="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 z-50 cursor-pointer animate-float transition-transform duration-300 hover:scale-110 active:scale-95"
+           style="margin-left: -10px;"
+           onclick="ouvrirInvitation()"
+           title="Cliquez pour ouvrir l'invitation">
+        
+        <img src="TAMPON.png" 
+             alt="Tampon d'ouverture" 
+             class="w-32 h-32 object-contain drop-shadow-2xl pointer-events-auto"
+             onerror="this.onerror=null; this.src='https://via.placeholder.com/130/d4af37/000000?text=Ouvrir';">
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- JavaScript d'animation -->
+  <script>
+    function ouvrirInvitation() {
+      const batGauche = document.getElementById('bat-gauche');
+      const batDroit = document.getElementById('bat-droit');
+      const tampon = document.getElementById('tampon-container');
+
+      // 1. Stopper l'animation de flottement
+      tampon.classList.remove('animate-float');
+
+      // 2. Glissement du battant gauche vers la gauche (-100%)
+      batGauche.style.transform = 'translateX(-100%)';
+
+      // 3. Glissement solidaire du battant droit + tampon vers la droite (+100%)
+      batDroit.style.transform = 'translateX(100%)';
+
+      // 4. Masquer les éléments des portes une fois l'animation terminée
+      setTimeout(() => {
+        batGauche.style.display = 'none';
+        batDroit.style.display = 'none';
+      }, 1250);
+    }
+  </script>
+
+</body>
+</html>
